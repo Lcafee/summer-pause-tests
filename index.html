@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f3efe7" />
+  <meta name="color-scheme" content="light" />
+
+  <title>L Cafe — Website Tests</title>
+
+  <style>
+    :root {
+      --bg: #f3efe7;
+      --surface: rgba(255, 255, 255, 0.78);
+      --surface-strong: #fffdf8;
+      --text: #242521;
+      --muted: #747973;
+      --line: rgba(36, 37, 33, 0.12);
+      --accent: #6f1830;
+      --shadow: 0 18px 50px rgba(36, 37, 33, 0.08);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      min-height: 100dvh;
+      padding:
+        max(24px, env(safe-area-inset-top))
+        18px
+        max(24px, env(safe-area-inset-bottom));
+      font-family:
+        "Vazirmatn",
+        "IRANSansX",
+        "Tahoma",
+        Arial,
+        sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(116, 121, 115, 0.14), transparent 34%),
+        radial-gradient(circle at bottom left, rgba(111, 24, 48, 0.08), transparent 32%),
+        var(--bg);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(100%, 560px);
+      margin-inline: auto;
+    }
+
+    .hero {
+      padding: 18px 4px 30px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 38px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      direction: ltr;
+    }
+
+    .brand::before {
+      width: 28px;
+      height: 1px;
+      content: "";
+      background: currentColor;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      direction: ltr;
+      text-align: right;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 420px;
+      font-size: clamp(30px, 9vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .intro {
+      max-width: 430px;
+      margin: 18px 0 0;
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    .versions {
+      display: grid;
+      gap: 12px;
+    }
+
+    .version {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      min-height: 108px;
+      padding: 20px;
+      overflow: hidden;
+      text-decoration: none;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background-color 180ms ease;
+    }
+
+    .version::after {
+      position: absolute;
+      inset: auto -18px -28px auto;
+      width: 90px;
+      height: 90px;
+      content: "";
+      border: 1px solid rgba(116, 121, 115, 0.16);
+      border-radius: 50%;
+    }
+
+    .version:active {
+      transform: scale(0.985);
+    }
+
+    .version:focus-visible {
+      outline: 3px solid rgba(111, 24, 48, 0.25);
+      outline-offset: 3px;
+    }
+
+    .version-copy {
+      min-width: 0;
+    }
+
+    .version-number {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      direction: ltr;
+      text-align: right;
+    }
+
+    .version-title {
+      display: block;
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.45;
+      direction: ltr;
+      text-align: right;
+    }
+
+    .version-description {
+      display: block;
+      margin-top: 6px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .arrow {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      font-size: 20px;
+      color: var(--text);
+      background: var(--surface-strong);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      direction: ltr;
+    }
+
+    .footer {
+      margin-top: 26px;
+      padding: 0 4px;
+      font-size: 12px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    @media (hover: hover) {
+      .version:hover {
+        transform: translateY(-3px);
+        background: var(--surface-strong);
+        border-color: rgba(111, 24, 48, 0.18);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .version {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="brand">L CAFE</div>
+
+      <p class="eyebrow">SUMMER PAUSE · TEST BUILDS</p>
+
+      <h1>نسخه موردنظر را برای بررسی انتخاب کن.</h1>
+
+      <p class="intro">
+        همه نسخه‌ها به‌صورت مستقل منتشر شده‌اند و بدون حذف فایل‌های قبلی می‌توانی آن‌ها را کنار هم تست و مقایسه کنی.
+      </p>
+    </header>
+
+    <section class="versions" aria-label="نسخه‌های سایت">
+      <a class="version" href="./01-editorial-summer-luxury/">
+        <span class="version-copy">
+          <span class="version-number">VERSION 01</span>
+          <span class="version-title">Editorial Summer Luxury</span>
+          <span class="version-description">ادیتوریال، لوکس، آرام و تابستانی</span>
+        </span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="version" href="./02-cinematic-product-first/">
+        <span class="version-copy">
+          <span class="version-number">VERSION 02</span>
+          <span class="version-title">Cinematic Product-First</span>
+          <span class="version-description">محصول‌محور، سینمایی و تصویری</span>
+        </span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="version" href="./03-contemporary-art-collage/">
+        <span class="version-copy">
+          <span class="version-number">VERSION 03</span>
+          <span class="version-title">Contemporary Art Collage</span>
+          <span class="version-description">کلاژ معاصر، هنری و جسور</span>
+        </span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="version" href="./04-editorial-riviera-luxury/">
+        <span class="version-copy">
+          <span class="version-number">VERSION 04</span>
+          <span class="version-title">Editorial Riviera Luxury</span>
+          <span class="version-description">ریویرا، روشن، لوکس و تابستانی</span>
+        </span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </section>
+
+    <footer class="footer">
+      برای اضافه‌کردن نسخه جدید، یک کارت مشابه بساز و آدرس پوشه آن را در
+      <code>href</code>
+      قرار بده.
+    </footer>
+  </main>
+</body>
+</html>
