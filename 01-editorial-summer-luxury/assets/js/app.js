@@ -93,6 +93,8 @@
       image.alt = 'تصویر جایگزین نوشیدنی L Cafe';
     };
     image.loading = eager ? 'eager' : 'lazy';
+    image.decoding = 'async';
+    image.fetchPriority = eager ? 'high' : 'auto';
     image.src = product?.image || fallbackImage;
     image.alt = product?.name ? `تصویر ${product.name}` : 'تصویر جایگزین نوشیدنی L Cafe';
   }
@@ -331,8 +333,8 @@
     visual.className = 'product-visual';
 
     const image = document.createElement('img');
-    image.width = 512;
-    image.height = 512;
+    image.width = 1254;
+    image.height = 1254;
     assignImage(image, product);
 
     const code = document.createElement('span');
