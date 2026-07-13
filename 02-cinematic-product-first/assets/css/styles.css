@@ -10,9 +10,9 @@
   --line: rgba(70, 35, 35, .18);
   --result-accent: #a9aa62;
   --result-ink: #3a251f;
-  --serif: Georgia, "Times New Roman", serif;
-  --sans-fa: Tahoma, "Segoe UI", Arial, sans-serif;
-  --sans-en: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  --sans-fa: "Vazirmatn", Tahoma, "Segoe UI", Arial, sans-serif;
+  --sans-en: "Roboto Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
 }

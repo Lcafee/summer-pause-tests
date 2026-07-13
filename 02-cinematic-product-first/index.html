@@ -8,8 +8,11 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="description" content="با دو انتخاب کوتاه، نوشیدنی مخصوص حال‌وهوای تابستانی خودت را در L Cafe پیدا کن.">
   <link rel="icon" href="assets/brand/lcafe-logo.svg" type="image/svg+xml">
-  <link rel="preload" as="image" href="assets/images/it-01.jpg" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/images/cl-01.jpg">
+  <link rel="preload" as="image" href="assets/images/it-01.webp" type="image/webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/cl-01.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto+Condensed:wght@600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <title>Find Your Summer Pause | L Cafe</title>
 </head>
@@ -20,9 +23,9 @@
     <main id="mainContent">
       <section class="screen home-screen is-active" id="homeScreen" aria-labelledby="homeTitle">
         <div class="home-backdrop" aria-hidden="true">
-          <figure class="home-frame home-frame--one"><img src="assets/images/it-01.jpg" alt="" width="512" height="512" fetchpriority="high"></figure>
-          <figure class="home-frame home-frame--two"><img src="assets/images/cl-01.jpg" alt="" width="512" height="512"></figure>
-          <figure class="home-frame home-frame--three"><img src="assets/images/fr-02.jpg" alt="" width="512" height="512"></figure>
+          <figure class="home-frame home-frame--one"><img src="assets/images/it-01.webp" alt="" width="1254" height="1254" fetchpriority="high" decoding="async"></figure>
+          <figure class="home-frame home-frame--two"><img src="assets/images/cl-01.webp" alt="" width="1254" height="1254" decoding="async"></figure>
+          <figure class="home-frame home-frame--three"><img src="assets/images/fr-02.webp" alt="" width="1254" height="1254" decoding="async"></figure>
           <div class="home-light"></div>
         </div>
 
@@ -51,8 +54,8 @@
 
       <section class="screen quiz-screen" id="quizScreen" aria-labelledby="questionTitle" hidden>
         <div class="quiz-scene" aria-hidden="true">
-          <img class="quiz-scene-image quiz-scene-image--a" id="quizSceneImageA" src="assets/images/it-01.jpg" alt="" width="512" height="512">
-          <img class="quiz-scene-image quiz-scene-image--b" id="quizSceneImageB" src="assets/images/rf-02.jpg" alt="" width="512" height="512">
+          <img class="quiz-scene-image quiz-scene-image--a" id="quizSceneImageA" src="assets/images/it-01.webp" alt="" width="1254" height="1254" decoding="async">
+          <img class="quiz-scene-image quiz-scene-image--b" id="quizSceneImageB" src="assets/images/rf-02.webp" alt="" width="1254" height="1254" decoding="async">
           <div class="quiz-scene-shade"></div>
         </div>
 
@@ -72,7 +75,7 @@
       </section>
 
       <section class="screen reveal-screen" id="revealScreen" aria-labelledby="revealTitle" hidden>
-        <div class="reveal-image-wrap" aria-hidden="true"><img id="revealImage" src="assets/images/cl-01.jpg" alt="" width="512" height="512"></div>
+        <div class="reveal-image-wrap" aria-hidden="true"><img id="revealImage" src="assets/images/cl-01.webp" alt="" width="1254" height="1254" decoding="async"></div>
         <div class="reveal-mask" aria-hidden="true"></div>
         <div class="reveal-copy">
           <p dir="ltr">YOUR PAUSE IS READY</p>
@@ -82,7 +85,7 @@
 
       <section class="screen result-screen" id="resultScreen" aria-labelledby="resultName" hidden>
         <div class="result-hero">
-          <img class="result-image" id="resultImage" src="assets/images/cl-01.jpg" alt="" width="512" height="512" fetchpriority="high">
+          <img class="result-image" id="resultImage" src="assets/images/cl-01.webp" alt="" width="1254" height="1254" fetchpriority="high" decoding="async">
           <div class="result-film" aria-hidden="true"></div>
           <header class="screen-header screen-header--light result-header">
             <button class="icon-button" id="resultHomeButton" type="button" aria-label="بازگشت به صفحه اول"><span aria-hidden="true">×</span></button>
@@ -106,7 +109,7 @@
 
         <aside class="encore" aria-labelledby="encoreTitle">
           <div class="encore-head"><div><p dir="ltr">ONE MORE DISCOVERY</p><h2 id="encoreTitle">یک انتخاب دیگر</h2></div><span aria-hidden="true">Encore</span></div>
-          <div class="encore-visual"><img id="encoreImage" src="assets/images/fr-02.jpg" alt="" width="512" height="512" loading="lazy"><div class="encore-gradient"></div><div class="encore-copy"><span id="encoreLine">فراپه</span><h3 id="encoreName">فراپه ارده</h3><p id="encoreNameEn" dir="ltr">Tahini Frappe</p><strong id="encorePrice">۳۷۰٬۰۰۰ تومان</strong></div></div>
+          <div class="encore-visual"><img id="encoreImage" src="assets/images/fr-02.webp" alt="" width="1254" height="1254" loading="lazy" decoding="async"><div class="encore-gradient"></div><div class="encore-copy"><span id="encoreLine">فراپه</span><h3 id="encoreName">فراپه ارده</h3><p id="encoreNameEn" dir="ltr">Tahini Frappe</p><strong id="encorePrice">۳۷۰٬۰۰۰ تومان</strong></div></div>
         </aside>
 
         <div class="result-actions">

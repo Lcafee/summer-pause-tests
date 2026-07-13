@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "duplicate_ids": 0,
+  "html_ids_checked": 49,
+  "missing_local_assets": 0,
+  "javascript_syntax_errors": 0,
+  "external_font_or_cdn_dependencies": 0,
+  "source_images": 8,
+  "optimized_images": 32,
+  "source_dimensions": "1254x1254",
+  "optimized_dimensions": ["480x480", "960x960"]
+}

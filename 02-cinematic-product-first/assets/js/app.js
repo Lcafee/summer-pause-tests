@@ -246,9 +246,9 @@
     const figure = document.createElement("figure");
     figure.className = "menu-product-image";
     const image = document.createElement("img");
-    image.width = 512;
-    image.height = 512;
-    image.loading = "eager";
+    image.width = 1254;
+    image.height = 1254;
+    image.loading = "lazy";
     image.decoding = "async";
     setImage(image, product.image, `تصویر ${product.name}`);
     figure.append(image);
