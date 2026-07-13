@@ -85,31 +85,62 @@
 
       <section class="screen result-screen" id="resultScreen" aria-labelledby="resultName" hidden>
         <div class="result-hero">
-          <img class="result-image" id="resultImage" src="assets/images/cl-01.webp" alt="" width="1254" height="1254" fetchpriority="high" decoding="async">
-          <div class="result-film" aria-hidden="true"></div>
+          <div class="result-backdrop" aria-hidden="true">
+            <img class="result-image" id="resultImage" src="assets/images/cl-01.webp" alt="" width="1254" height="1254" fetchpriority="high" decoding="async">
+            <div class="result-aura"></div>
+            <div class="result-film"></div>
+          </div>
+
           <header class="screen-header screen-header--light result-header">
             <button class="icon-button" id="resultHomeButton" type="button" aria-label="بازگشت به صفحه اول"><span aria-hidden="true">×</span></button>
             <img class="mini-logo" src="assets/brand/lcafe-logo.svg" alt="L Cafe" width="92" height="44">
             <span class="result-code" id="resultCode" dir="ltr">CL-01</span>
           </header>
-          <div class="result-title-block">
-            <p class="result-kicker" dir="ltr">YOUR SUMMER PAUSE</p>
-            <span class="result-line" id="resultLine">کلودی</span>
-            <h1 id="resultName" tabindex="-1">کلودی پسته</h1>
-            <p class="result-name-en" id="resultNameEn" dir="ltr">Pistachio Cloudy</p>
+
+          <p class="result-ghost" id="resultLineEn" dir="ltr" aria-hidden="true">CLOUDY</p>
+
+          <div class="result-hero-content">
+            <div class="result-index" aria-hidden="true"><span id="resultLineNumber">03</span><i></i><span>SUMMER PAUSE</span></div>
+            <div class="result-title-block">
+              <p class="result-kicker" dir="ltr">THIS ONE FEELS LIKE YOU</p>
+              <h1 id="resultName" tabindex="-1">کلودی پسته</h1>
+              <p class="result-name-en" id="resultNameEn" dir="ltr">Pistachio Cloudy</p>
+            </div>
+            <div class="result-price-badge"><span>قیمت</span><strong id="resultPrice">۴۳۰٬۰۰۰ تومان</strong></div>
           </div>
         </div>
 
-        <article class="result-details">
-          <div class="price-row"><span>قیمت</span><strong id="resultPrice">۴۳۰٬۰۰۰ تومان</strong></div>
+        <article class="result-story" aria-labelledby="resultStoryTitle">
+          <header class="result-story-head">
+            <div><p dir="ltr">TASTING PORTRAIT</p><h2 id="resultStoryTitle">حال‌وهوای این انتخاب</h2></div>
+            <span aria-hidden="true">01</span>
+          </header>
           <p class="result-description" id="resultDescription"></p>
-          <ul class="tag-list" id="resultTags" aria-label="ویژگی‌های طعمی"></ul>
-          <p class="mood-line" id="resultMood" dir="ltr"></p>
+          <div class="result-facts">
+            <div><span dir="ltr">LINE</span><strong id="resultLine">کلودی</strong></div>
+            <div><span dir="ltr">MOOD</span><strong id="resultMood" dir="ltr"></strong></div>
+          </div>
+          <div class="result-notes">
+            <span dir="ltr">TASTE NOTES</span>
+            <ul class="tag-list" id="resultTags" aria-label="ویژگی‌های طعمی"></ul>
+          </div>
         </article>
 
         <aside class="encore" aria-labelledby="encoreTitle">
-          <div class="encore-head"><div><p dir="ltr">ONE MORE DISCOVERY</p><h2 id="encoreTitle">یک انتخاب دیگر</h2></div><span aria-hidden="true">Encore</span></div>
-          <div class="encore-visual"><img id="encoreImage" src="assets/images/fr-02.webp" alt="" width="1254" height="1254" loading="lazy" decoding="async"><div class="encore-gradient"></div><div class="encore-copy"><span id="encoreLine">فراپه</span><h3 id="encoreName">فراپه ارده</h3><p id="encoreNameEn" dir="ltr">Tahini Frappe</p><strong id="encorePrice">۳۷۰٬۰۰۰ تومان</strong></div></div>
+          <header class="encore-head">
+            <div><p dir="ltr">A SECOND POSSIBILITY</p><h2 id="encoreTitle">یک کشف دیگر</h2></div>
+            <span aria-hidden="true">Encore</span>
+          </header>
+          <div class="encore-stage">
+            <figure class="encore-visual"><img id="encoreImage" src="assets/images/fr-02.webp" alt="" width="1254" height="1254" loading="lazy" decoding="async"></figure>
+            <div class="encore-copy">
+              <div class="encore-meta"><span id="encoreLine">فراپه</span><strong id="encorePrice">۳۷۰٬۰۰۰ تومان</strong></div>
+              <h3 id="encoreName">فراپه ارده</h3>
+              <p id="encoreNameEn" dir="ltr">Tahini Frappe</p>
+              <span class="encore-rule" aria-hidden="true"></span>
+              <small>پیشنهاد دوم هر بار می‌تواند تغییر کند.</small>
+            </div>
+          </div>
         </aside>
 
         <div class="result-actions">
@@ -119,16 +150,25 @@
       </section>
 
       <section class="screen menu-screen" id="menuScreen" aria-labelledby="menuTitle" hidden>
-        <header class="menu-top">
-          <button class="icon-button icon-button--dark" id="closeMenuButton" type="button" aria-label="بازگشت"><span aria-hidden="true">→</span></button>
-          <img class="mini-logo mini-logo--dark" src="assets/brand/lcafe-logo.svg" alt="L Cafe" width="92" height="44">
-          <span class="season-mark season-mark--dark" dir="ltr">SUMMER · 1405</span>
-        </header>
+        <div class="menu-cover">
+          <div class="menu-cover-gallery" aria-hidden="true">
+            <figure class="menu-cover-frame menu-cover-frame--one"><img src="assets/images/it-01.webp" alt="" width="1254" height="1254" decoding="async"></figure>
+            <figure class="menu-cover-frame menu-cover-frame--two"><img src="assets/images/cl-01.webp" alt="" width="1254" height="1254" decoding="async"></figure>
+            <figure class="menu-cover-frame menu-cover-frame--three"><img src="assets/images/fr-02.webp" alt="" width="1254" height="1254" decoding="async"></figure>
+            <div class="menu-cover-shade"></div>
+          </div>
 
-        <div class="menu-intro">
-          <p class="eyebrow eyebrow--dark" dir="ltr">THE SUMMER COLLECTION</p>
-          <h1 id="menuTitle" tabindex="-1">هشت مکث<br>برای تابستان</h1>
-          <p>چهار فصل کوتاه از طعم، بافت و خنکی؛ هرکدام با حال‌وهوای خودش.</p>
+          <header class="menu-top menu-top--cover">
+            <button class="icon-button" id="closeMenuButton" type="button" aria-label="بازگشت"><span aria-hidden="true">→</span></button>
+            <img class="mini-logo" src="assets/brand/lcafe-logo.svg" alt="L Cafe" width="92" height="44">
+            <span class="season-mark" dir="ltr">SUMMER · 1405</span>
+          </header>
+
+          <div class="menu-intro">
+            <p class="eyebrow" dir="ltr">THE SUMMER COLLECTION</p>
+            <h1 id="menuTitle" tabindex="-1">هشت مکث<br>برای تابستان</h1>
+            <div class="menu-intro-foot"><p>چهار فصل کوتاه از طعم، بافت و خنکی؛ هر نوشیدنی با صحنه و شخصیت خودش.</p><span dir="ltr">08 DRINKS<br>04 CHAPTERS</span></div>
+          </div>
         </div>
 
         <nav class="chapter-nav" aria-label="لاین‌های منو">

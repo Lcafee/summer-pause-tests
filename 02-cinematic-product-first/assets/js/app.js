@@ -32,6 +32,8 @@
     resultHomeButton: document.getElementById("resultHomeButton"),
     resultImage: document.getElementById("resultImage"),
     resultCode: document.getElementById("resultCode"),
+    resultLineEn: document.getElementById("resultLineEn"),
+    resultLineNumber: document.getElementById("resultLineNumber"),
     resultLine: document.getElementById("resultLine"),
     resultName: document.getElementById("resultName"),
     resultNameEn: document.getElementById("resultNameEn"),
@@ -181,8 +183,11 @@
 
     document.documentElement.style.setProperty("--result-accent", line.accent);
     document.documentElement.style.setProperty("--result-ink", line.ink);
+    elements.resultScreen.dataset.line = product.line;
     setImage(elements.resultImage, product.image, `تصویر ${product.name}`);
     elements.resultCode.textContent = product.code;
+    elements.resultLineEn.textContent = line.name;
+    elements.resultLineNumber.textContent = line.number;
     elements.resultLine.textContent = line.fa;
     elements.resultName.textContent = product.name;
     elements.resultNameEn.textContent = product.en;
@@ -214,6 +219,7 @@
       navButton.type = "button";
       navButton.className = `chapter-link${lineIndex === 0 ? " is-current" : ""}`;
       navButton.dataset.target = `chapter-${line.key}`;
+      navButton.style.setProperty("--nav-accent", line.accent);
       navButton.innerHTML = `<span>${line.number}</span><b dir="ltr">${line.name}</b>`;
       navButton.addEventListener("click", () => {
         document.getElementById(navButton.dataset.target)?.scrollIntoView({ behavior: state.reducedMotion ? "auto" : "smooth", block: "start" });
@@ -225,7 +231,8 @@
       chapter.id = `chapter-${line.key}`;
       chapter.dataset.line = line.key;
       chapter.style.setProperty("--chapter-accent", line.accent);
-      chapter.innerHTML = `<header class="chapter-head"><span class="chapter-number">${line.number}</span><div><p dir="ltr">${line.caption}</p><h2 dir="ltr">${line.name}</h2><span>${line.fa}</span></div></header><p class="chapter-intro">${line.intro}</p>`;
+      chapter.style.setProperty("--chapter-ink", line.ink);
+      chapter.innerHTML = `<div class="chapter-opening" data-number="${line.number}"><header class="chapter-head"><span class="chapter-number">${line.number}</span><div><p dir="ltr">${line.caption}</p><h2 dir="ltr">${line.name}</h2><span>${line.fa}</span></div></header><p class="chapter-intro">${line.intro}</p></div>`;
 
       const productsWrap = document.createElement("div");
       productsWrap.className = "chapter-products";
@@ -243,6 +250,9 @@
     article.className = `menu-product${index % 2 ? " menu-product--reverse" : ""}`;
     article.dataset.code = product.code;
 
+    const frame = document.createElement("div");
+    frame.className = "menu-product-frame";
+
     const figure = document.createElement("figure");
     figure.className = "menu-product-image";
     const image = document.createElement("img");
@@ -253,11 +263,20 @@
     setImage(image, product.image, `تصویر ${product.name}`);
     figure.append(image);
 
+    const stamp = document.createElement("div");
+    stamp.className = "menu-product-stamp";
+    stamp.innerHTML = `<span>PORTRAIT ${String(index + 1).padStart(2, "0")}</span><b>${product.code}</b>`;
+
+    const price = document.createElement("strong");
+    price.className = "menu-product-price";
+    price.textContent = formatPrice(product.price);
+    frame.append(figure, stamp, price);
+
     const content = document.createElement("div");
     content.className = "menu-product-copy";
-    content.innerHTML = `<div class="menu-product-meta"><span dir="ltr">${product.code}</span><strong>${formatPrice(product.price)}</strong></div><h3>${product.name}</h3><p class="menu-product-en" dir="ltr">${product.en}</p><p class="menu-product-description">${product.description}</p><ul class="menu-product-tags">${product.tags.map(tag => `<li>${tag}</li>`).join("")}</ul>`;
+    content.innerHTML = `<p class="menu-product-sequence" dir="ltr">0${index + 1}</p><h3>${product.name}</h3><p class="menu-product-en" dir="ltr">${product.en}</p><p class="menu-product-description">${product.description}</p><ul class="menu-product-tags">${product.tags.map(tag => `<li>${tag}</li>`).join("")}</ul>`;
 
-    article.append(figure, content);
+    article.append(frame, content);
     return article;
   }
 
