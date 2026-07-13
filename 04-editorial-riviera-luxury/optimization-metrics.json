@@ -1,0 +1,46 @@
+{
+  "measurement": {
+    "viewport_css_px": {
+      "width": 390,
+      "height": 844
+    },
+    "device_pixel_ratio": 3,
+    "external_estedad_response_excluded_from_both_measurements": true
+  },
+  "initial_local_payload_bytes": {
+    "before": 738483,
+    "after": 275047,
+    "saved": 463436,
+    "reduction_percent": 62.76
+  },
+  "home_hero_images_bytes": {
+    "before": 644798,
+    "after": 161834,
+    "reduction_percent": 74.9
+  },
+  "full_menu_images_bytes_at_390_dpr3": {
+    "before": 1723054,
+    "after": 747388,
+    "reduction_percent": 56.62
+  },
+  "runtime_assets_bytes": {
+    "css_before": 33820,
+    "css_after": 20694,
+    "javascript_before": 35839,
+    "javascript_after": 28941,
+    "logo_svg_before": 23242,
+    "logo_svg_after": 17242
+  },
+  "qa": {
+    "mobile_widths": [
+      320,
+      360,
+      390,
+      430
+    ],
+    "quiz_routes_passed": 32,
+    "maximum_geometry_difference_px": 0,
+    "horizontal_overflow_failures": 0,
+    "unexpected_console_errors": 0
+  }
+}

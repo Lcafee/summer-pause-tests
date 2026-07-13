@@ -1,0 +1,394 @@
+{
+  "IT-01": {
+    "source": {
+      "path": "assets/images/source/it-01.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1758393,
+      "sha256": "0bd3fd7ec4d665f68c5de1255e2b306e699370ffca6add22186c246ce2588d36"
+    },
+    "variants": {
+      "480_webp": {
+        "path": "assets/images/products/it-01-480.webp",
+        "dimensions": [
+          480,
+          480
+        ],
+        "bytes": 7906,
+        "sha256": "2388cb9111cb0480033c8034910bd6a752963c10dd9d456a06c55639a7f31924"
+      },
+      "480_jpg": {
+        "path": "assets/images/products/it-01-480.jpg",
+        "dimensions": [
+          480,
+          480
+        ],
+        "bytes": 22552,
+        "sha256": "c4eba1fd9a269b95506dd2a2a2ec0226d79e8316cf2ef466843bd49db2a49ace"
+      },
+      "960_webp": {
+        "path": "assets/images/products/it-01-960.webp",
+        "dimensions": [
+          960,
+          960
+        ],
+        "bytes": 29804,
+        "sha256": "8e9f60e088088dc020e91b7de6eb80d70c13a34c2d5cc3741fbb881c2631bedb"
+      },
+      "960_jpg": {
+        "path": "assets/images/products/it-01-960.jpg",
+        "dimensions": [
+          960,
+          960
+        ],
+        "bytes": 102160,
+        "sha256": "bfcd6bd498b5b8f677e292c66e823f988c5b7b985903d3b0cd8d7a9fac3be58a"
+      }
+    }
+  },
+  "IT-02": {
+    "source": {
+      "path": "assets/images/source/it-02.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1728779,
+      "sha256": "5e9bba6aee281402499925c1d139c7f29907f1ee22be12110174f6f78fabf82c"
+    },
+    "variants": {
+      "480_webp": {
+        "path": "assets/images/products/it-02-480.webp",
+        "dimensions": [
+          480,
+          480
+        ],
+        "bytes": 8416,
+        "sha256": "e59c5aa0380bc3ca7b55c432230857b2bf7254d95e207770bd9975b2f9b4670f"
+      },
+      "480_jpg": {
+        "path": "assets/images/products/it-02-480.jpg",
+        "dimensions": [
+          480,
+          480
+        ],
+        "bytes": 22318,
+        "sha256": "ee735224e191e8c199d84f5cdcd10e25a2cbbe28d8f6aee626f0796fc70dfffd"
+      },
+      "960_webp": {
+        "path": "assets/images/products/it-02-960.webp",
+        "dimensions": [
+          960,
+          960
+        ],
+        "bytes": 31464,
+        "sha256": "f8c1c0b9f7cc48e80e114230760e2dad061bf2106befd96733d7adf56305bdb0"
+      },
+      "960_jpg": {
+        "path": "assets/images/products/it-02-960.jpg",
+        "dimensions": [
+          960,
+          960
+        ],
+        "bytes": 100818,
+        "sha256": "e315ca9552cfb319591da9de6a3d078e3c9b0c098c782983fea1affcc2101fe7"
+      }
+    }
+  },
+  "RF-02": {
+    "source": {
+      "path": "assets/images/source/rf-02.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1988566,
+      "sha256": "37646519663790a9670443bd701bccc2b6f024b1d683e5a619fb33633e1c0694"
+    },
+    "variants": {
+      "480_webp": {
+        "path": "assets/images/products/rf-02-480.webp",
+        "dimensions": [
+          480,
+          480
+        ],
+        "bytes": 15432,
+        "sha256": "fa164986b1d78590e36839f960bdbe8c13fdbb726564c5387b6c011b2e941ed3"
+      },
+      "480_jpg": {
+        "path": "assets/images/products/rf-02-480.jpg",
+        "dimensions": [
+          480,
+          480
+        ],
+        "bytes": 31831,
+        "sha256": "70caeb236cc4b962c1d1af8b6617973f42a456aac4442f065ce7517931c6b66a"
+      },
+      "960_webp": {
+        "path": "assets/images/products/rf-02-960.webp",
+        "dimensions": [
+          960,
+          960
+        ],
+        "bytes": 66238,
+        "sha256": "579608153fc6fcc79fa9ba37365799cae8258abd8938604ce5163faf25c609b0"
+      },
+      "960_jpg": {
+        "path": "assets/images/products/rf-02-960.jpg",
+        "dimensions": [
+          960,
+          960
+        ],
+        "bytes": 143581,
+        "sha256": "120482bc5112201f46842498ad85d4abcea47c313c0e6a04405504de7f02a611"
+      }
+    }
+  },
+  "RF-03": {
+    "source": {
+      "path": "assets/images/source/rf-03.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1933273,
+      "sha256": "4d760531e35b833b8ee7f48f41f3b73a1634b76910673969a770030aadd598a0"
+    },
+    "variants": {
+      "480_webp": {
+        "path": "assets/images/products/rf-03-480.webp",
+        "dimensions": [
+          480,
+          480
+        ],
+        "bytes": 10884,
+        "sha256": "318a66cdaa4c2778ac9c8cddc9758b0c5333761dac43e231ead15e791eb422aa"
+      },
+      "480_jpg": {
+        "path": "assets/images/products/rf-03-480.jpg",
+        "dimensions": [
+          480,
+          480
+        ],
+        "bytes": 26843,
+        "sha256": "dcd186f84f79da64bedf56541738d536d04ba41e550ed157d100b39a270300f0"
+      },
+      "960_webp": {
+        "path": "assets/images/products/rf-03-960.webp",
+        "dimensions": [
+          960,
+          960
+        ],
+        "bytes": 53124,
+        "sha256": "57ed69a75c0a5b0fd40c91a7db5255f44ab14f16aaf148abf9fbe9e0fc7a0022"
+      },
+      "960_jpg": {
+        "path": "assets/images/products/rf-03-960.jpg",
+        "dimensions": [
+          960,
+          960
+        ],
+        "bytes": 127812,
+        "sha256": "1cc0932dd6e14d4cb7f52b6a442be542b44d35bfc10de9be0089c322b5857055"
+      }
+    }
+  },
+  "CL-01": {
+    "source": {
+      "path": "assets/images/source/cl-01.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1793926,
+      "sha256": "648265d8528dbe867f9c4dbf9519337b3ddee210714ed6e53eadb82e2857693a"
+    },
+    "variants": {
+      "480_webp": {
+        "path": "assets/images/products/cl-01-480.webp",
+        "dimensions": [
+          480,
+          480
+        ],
+        "bytes": 8452,
+        "sha256": "c61ee46ad518da7917776a2884a634b6df6339006da69683374be65613075558"
+      },
+      "480_jpg": {
+        "path": "assets/images/products/cl-01-480.jpg",
+        "dimensions": [
+          480,
+          480
+        ],
+        "bytes": 23481,
+        "sha256": "164d976c94b622c00f1a26063c61924c440d3b63fb5a61b1d2f19223e3a23c4e"
+      },
+      "960_webp": {
+        "path": "assets/images/products/cl-01-960.webp",
+        "dimensions": [
+          960,
+          960
+        ],
+        "bytes": 30486,
+        "sha256": "336e97aec5b9d68176c44589cecc86ff7a478906937597407f95262a89e819fd"
+      },
+      "960_jpg": {
+        "path": "assets/images/products/cl-01-960.jpg",
+        "dimensions": [
+          960,
+          960
+        ],
+        "bytes": 105691,
+        "sha256": "49569d073acf425172496f09fb04f9ef22f77a5739ee0c4a152c998f25ab1d97"
+      }
+    }
+  },
+  "CL-03": {
+    "source": {
+      "path": "assets/images/source/cl-03.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1728648,
+      "sha256": "923474bdfa57c036cd0dc3dbe7ee2fe5f7639228543dc41ac8bd7890d2a40335"
+    },
+    "variants": {
+      "480_webp": {
+        "path": "assets/images/products/cl-03-480.webp",
+        "dimensions": [
+          480,
+          480
+        ],
+        "bytes": 8562,
+        "sha256": "8d180d52ea299874b3ef14125dd8044f8c655d8ed49d406f6bccef8ddcf84e84"
+      },
+      "480_jpg": {
+        "path": "assets/images/products/cl-03-480.jpg",
+        "dimensions": [
+          480,
+          480
+        ],
+        "bytes": 24799,
+        "sha256": "2608ec2936b2480b8474eb5208c1d0a3de50309161d2fad270b9019700f544d5"
+      },
+      "960_webp": {
+        "path": "assets/images/products/cl-03-960.webp",
+        "dimensions": [
+          960,
+          960
+        ],
+        "bytes": 35550,
+        "sha256": "3ea74bf466f017a34e48fb96942132dee75b056c049a84e6af82924e0f9cdb44"
+      },
+      "960_jpg": {
+        "path": "assets/images/products/cl-03-960.jpg",
+        "dimensions": [
+          960,
+          960
+        ],
+        "bytes": 106997,
+        "sha256": "dc41db461945b73ac026205ebb20f53fcbe3f02b476730f5e2626eda00f9817a"
+      }
+    }
+  },
+  "FR-01": {
+    "source": {
+      "path": "assets/images/source/fr-01.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1777261,
+      "sha256": "a47bd8732f63a85f6a0798f48b8910c1581107fda6c976fe523afee7c3b0c67c"
+    },
+    "variants": {
+      "480_webp": {
+        "path": "assets/images/products/fr-01-480.webp",
+        "dimensions": [
+          480,
+          480
+        ],
+        "bytes": 10306,
+        "sha256": "58552a419f36ceb292754ef664996837e0cbb906f506d758bd43b7bffb998f53"
+      },
+      "480_jpg": {
+        "path": "assets/images/products/fr-01-480.jpg",
+        "dimensions": [
+          480,
+          480
+        ],
+        "bytes": 25196,
+        "sha256": "13c23faab2f696755a921e1be7a2a74feca13a8d337d8afdf4efaede859dbc30"
+      },
+      "960_webp": {
+        "path": "assets/images/products/fr-01-960.webp",
+        "dimensions": [
+          960,
+          960
+        ],
+        "bytes": 39208,
+        "sha256": "bacf2c4f566429004a48f678557de12b3c4c265b8cfb5ef2c01fdc5175df2892"
+      },
+      "960_jpg": {
+        "path": "assets/images/products/fr-01-960.jpg",
+        "dimensions": [
+          960,
+          960
+        ],
+        "bytes": 114142,
+        "sha256": "777982883834fe855b0ba1679f12d4c36d4b527a59c5c9b4e225e4f1e946413a"
+      }
+    }
+  },
+  "FR-02": {
+    "source": {
+      "path": "assets/images/source/fr-02.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1811537,
+      "sha256": "34eff988beab30062e2795c21ca33ed91b3e1088dca2f7ca6afd3741cbee24b5"
+    },
+    "variants": {
+      "480_webp": {
+        "path": "assets/images/products/fr-02-480.webp",
+        "dimensions": [
+          480,
+          480
+        ],
+        "bytes": 14008,
+        "sha256": "979a72e3f5079d10d9c894e180e1cd96ec076456dd9b983ecb68db5c0fb8b362"
+      },
+      "480_jpg": {
+        "path": "assets/images/products/fr-02-480.jpg",
+        "dimensions": [
+          480,
+          480
+        ],
+        "bytes": 29764,
+        "sha256": "a69b7f98232f540bb8d5fa853d8038a2e2f26f4990ef5d95fd87df5979fd98bd"
+      },
+      "960_webp": {
+        "path": "assets/images/products/fr-02-960.webp",
+        "dimensions": [
+          960,
+          960
+        ],
+        "bytes": 49458,
+        "sha256": "3b835ebd70fe093415a02bbff6a42cb6ea3ba799adebda0cf396d29e8393d30c"
+      },
+      "960_jpg": {
+        "path": "assets/images/products/fr-02-960.jpg",
+        "dimensions": [
+          960,
+          960
+        ],
+        "bytes": 123218,
+        "sha256": "2f703645a4f69ed7cfa14a10cdd200c22ca1ed001c6bf8ca16151b9335c7c871"
+      }
+    }
+  }
+}
