@@ -1,243 +1,192 @@
-<!doctype html>
-<html lang="fa" dir="rtl">
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f3eee4">
-  <meta name="description" content="نوشیدنی تابستانی مخصوص حال‌وهوایت را در L Cafe پیدا کن.">
-  <title>Find Your Summer Pause — L Cafe</title>
-  <link rel="preload" href="assets/images/brand/lcafe-logo.svg" as="image" type="image/svg+xml">
-  <link rel="preload" href="assets/images/products/rf-02-960.webp" as="image" type="image/webp" fetchpriority="high">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <script defer src="assets/js/data.js"></script>
-  <script defer src="assets/js/app.js"></script>
-</head>
-<body>
-  <a class="skip-link" href="#app-main">رفتن به محتوای اصلی</a>
-
-  <div class="site-shell" id="site-shell">
-    <header class="site-header" aria-label="سربرگ سایت">
-      <button class="header-mark button-reset" id="home-mark" type="button" aria-label="بازگشت به صفحه شروع">
-        <img src="assets/images/brand/lcafe-logo.svg" alt="L Cafe — Your Daily Pause" width="107" height="56">
-      </button>
-      <div class="header-edition" aria-hidden="true">
-        <span>SUMMER / 26</span>
-        <span>ISFAHAN</span>
-      </div>
-    </header>
-
-    <main id="app-main" tabindex="-1">
-      <section class="screen home-screen is-active" id="screen-home" data-screen="home" aria-labelledby="home-title">
-        <div class="home-cover">
-          <div class="cover-register cover-register--one" aria-hidden="true">L / 04</div>
-          <div class="cover-register cover-register--two" aria-hidden="true">A TACTILE SUMMER EDIT</div>
-
-          <div class="hero-collage" aria-hidden="true">
-            <figure class="hero-cut hero-cut--main">
-              <picture>
-                <source type="image/webp" srcset="assets/images/products/rf-02-480.webp 480w, assets/images/products/rf-02-960.webp 960w" sizes="76vw">
-                <img src="assets/images/products/rf-02-960.jpg" alt="" width="960" height="960" fetchpriority="high" decoding="async">
-              </picture>
-            </figure>
-            <figure class="hero-cut hero-cut--left">
-              <picture>
-                <source type="image/webp" srcset="assets/images/products/cl-01-480.webp 480w, assets/images/products/cl-01-960.webp 960w" sizes="36vw">
-                <img src="assets/images/products/cl-01-480.jpg" alt="" width="480" height="480" decoding="async">
-              </picture>
-            </figure>
-            <figure class="hero-cut hero-cut--right">
-              <picture>
-                <source type="image/webp" srcset="assets/images/products/fr-01-480.webp 480w, assets/images/products/fr-01-960.webp 960w" sizes="30vw">
-                <img src="assets/images/products/fr-01-480.jpg" alt="" width="480" height="480" decoding="async">
-              </picture>
-            </figure>
-            <figure class="hero-cut hero-cut--strip">
-              <picture>
-                <source type="image/webp" srcset="assets/images/products/it-02-480.webp 480w, assets/images/products/it-02-960.webp 960w" sizes="58vw">
-                <img src="assets/images/products/it-02-480.jpg" alt="" width="480" height="480" decoding="async">
-              </picture>
-            </figure>
-            <span class="hero-orbit hero-orbit--one"></span>
-            <span class="hero-orbit hero-orbit--two"></span>
-          </div>
-
-          <div class="cover-title" id="home-title" aria-label="Find Your Summer Pause">
-            <span class="cover-title__find">FIND</span>
-            <span class="cover-title__your">YOUR</span>
-            <span class="cover-title__summer">SUMMER</span>
-            <span class="cover-title__pause">PAUSE</span>
-          </div>
-
-          <div class="home-intro">
-            <p>دو سؤال کوتاه؛ یک نوشیدنی متناسب با حال‌وهوای همین لحظه.</p>
-            <span class="home-intro__note" aria-hidden="true">01—08 / LIMITED SUMMER DRINKS</span>
-          </div>
-
-          <div class="home-actions" aria-label="مسیرهای اصلی">
-            <button class="action action--primary collage-button" id="start-quiz" type="button">
-              <span class="action__index" aria-hidden="true">01</span>
-              <span class="action__copy">
-                <strong>مکث من را پیدا کن</strong>
-                <small>شروع کوییز دو سؤالی</small>
-              </span>
-              <span class="action__arrow" aria-hidden="true">↙</span>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#f4efe7" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="با دو سؤال کوتاه، نوشیدنی تابستانی مخصوص حال‌وهوای خودت را در L Cafe پیدا کن." name="description"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="image" fetchpriority="high" href="assets/products/rf-02.webp" imagesizes="(max-width: 539px) 72vw, 430px" imagesrcset="assets/products/responsive/rf-02-480.webp 480w, assets/products/responsive/rf-02-640.webp 640w, assets/products/responsive/rf-02-850.webp 850w, assets/products/responsive/rf-02-960.webp 960w, assets/products/rf-02.webp 1254w" rel="preload"/><link as="font" crossorigin="anonymous" href="assets/fonts/cormorant-garamond-latin-variable.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="anonymous" href="assets/fonts/cormorant-garamond-latin-variable-italic.woff2" rel="preload" type="font/woff2"/><link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300..800&amp;display=swap" rel="stylesheet"/>
+<link href="styles/main.min.css" rel="stylesheet"/>
+<title>Find Your Summer Pause | L Cafe</title>
+<script defer="" src="scripts/site.min.js"></script></head>
+<body data-view="home">
+<a class="skip-link" href="#mainContent">رفتن به محتوای اصلی</a>
+<div class="site-shell">
+<header aria-label="سربرگ سایت" class="site-header">
+<button aria-label="بازگشت به صفحه اصلی" class="utility-button utility-button--home" hidden="" id="homeButton" type="button">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3.5 10.7 12 3.8l8.5 6.9v9.1h-5.2v-5.6H8.7v5.6H3.5z"></path></svg>
+</button>
+<button aria-label="L Cafe، بازگشت به صفحه اصلی" class="brand-button" id="brandButton" type="button">
+<img alt="L Cafe — Your Daily Pause" height="253" src="assets/lcafe-logo.svg" width="480"/>
+</button>
+<button aria-label="مشاهده همه نوشیدنی‌ها" class="utility-button utility-button--menu" id="globalMenuButton" type="button">
+<span aria-hidden="true"></span><span aria-hidden="true"></span>
+</button>
+</header>
+<main id="mainContent">
+<section aria-labelledby="homeTitle" class="view home-view" data-view-name="home" id="viewHome">
+<div class="home-grid">
+<div class="home-copy">
+<p class="eyebrow" dir="ltr" lang="en">L CAFE · SUMMER 2026</p>
+<h1 class="campaign-heading" id="homeTitle" tabindex="-1">
+<span dir="ltr" lang="en">FIND YOUR</span>
+<span class="campaign-heading__accent" dir="ltr" lang="en">SUMMER PAUSE</span>
+</h1>
+<p class="home-subtitle">مکث تابستانی‌ات رو پیدا کن.</p>
+<p class="home-lead">با دو سؤال کوتاه، نوشیدنی‌ای را کشف کن که به حال‌وهوای همین لحظه‌ات نزدیک‌تر است.</p>
+<div aria-label="مسیرهای اصلی سایت" class="home-actions">
+<button class="action-card action-card--primary" id="startQuizButton" type="button">
+<span aria-hidden="true" class="action-card__number">01</span>
+<span class="action-card__copy">
+<strong>پیدا کردن نوشیدنی من</strong>
+<small>دو سؤال کوتاه · کمتر از یک دقیقه</small>
+</span>
+<span aria-hidden="true" class="action-card__arrow">←</span>
+</button>
+<button class="action-card action-card--secondary" id="homeMenuButton" type="button">
+<span aria-hidden="true" class="action-card__number">02</span>
+<span class="action-card__copy">
+<strong>دیدن همه نوشیدنی‌ها</strong>
+<small>هشت انتخاب در چهار لاین تابستانی</small>
+</span>
+<span aria-hidden="true" class="action-card__arrow">←</span>
+</button>
+</div>
+</div>
+<div aria-label="منتخبی از نوشیدنی‌های تابستانی L Cafe" class="hero-collage">
+<div aria-hidden="true" class="hero-collage__sun"><span></span></div>
+<figure class="editorial-frame editorial-frame--main">
+<img alt="رفرشر انبه و شاهتوت" decoding="async" fetchpriority="high" height="1254" loading="eager" sizes="(max-width: 539px) 72vw, 430px" src="assets/products/rf-02.webp" srcset="assets/products/responsive/rf-02-480.webp 480w, assets/products/responsive/rf-02-640.webp 640w, assets/products/responsive/rf-02-850.webp 850w, assets/products/responsive/rf-02-960.webp 960w, assets/products/rf-02.webp 1254w" width="1254"/>
+<figcaption><span lang="en">REFRESHER</span><b>02</b></figcaption>
+</figure>
+<figure class="editorial-frame editorial-frame--top">
+<img alt="کلودی پسته" decoding="async" fetchpriority="low" height="1254" loading="eager" sizes="(max-width: 539px) 39vw, 230px" src="assets/products/cl-01.webp" srcset="assets/products/responsive/cl-01-480.webp 480w, assets/products/responsive/cl-01-640.webp 640w, assets/products/responsive/cl-01-960.webp 960w, assets/products/cl-01.webp 1254w" width="1254"/>
+<figcaption><span lang="en">CLOUDY</span><b>03</b></figcaption>
+</figure>
+<figure class="editorial-frame editorial-frame--bottom">
+<img alt="آیس‌تی اپل پارادایس" decoding="async" fetchpriority="low" height="1254" loading="eager" sizes="(max-width: 539px) 35vw, 210px" src="assets/products/it-01.webp" srcset="assets/products/responsive/it-01-480.webp 480w, assets/products/responsive/it-01-640.webp 640w, assets/products/responsive/it-01-960.webp 960w, assets/products/it-01.webp 1254w" width="1254"/>
+<figcaption><span lang="en">ICED TEA</span><b>01</b></figcaption>
+</figure>
+<p class="collage-note" dir="ltr" lang="en">A SMALL PAUSE<br/>FOR WARM DAYS</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="quizQuestion" class="view quiz-view" data-view-name="quiz" hidden="" id="viewQuiz">
+<div class="quiz-layout">
+<aside aria-hidden="true" class="quiz-aside">
+<p dir="ltr" lang="en">A QUIET WAY<br/>TO CHOOSE</p>
+<div class="quiz-aside__line"></div>
+<span dir="ltr" id="quizAsideLine" lang="en">SUMMER PAUSE</span>
+</aside>
+<div class="quiz-panel">
+<div class="quiz-progress">
+<div class="quiz-progress__meta">
+<span id="quizStepLabel">سؤال ۱ از ۲</span>
+<span dir="ltr" lang="en">YOUR PAUSE</span>
+</div>
+<div aria-label="پیشرفت کوییز" aria-valuemax="2" aria-valuemin="1" aria-valuenow="1" aria-valuetext="سؤال ۱ از ۲" class="quiz-progress__track" id="quizProgress" role="progressbar">
+<span class="quiz-progress__fill" id="quizProgressFill"></span>
+<i aria-hidden="true"></i><i aria-hidden="true"></i>
+</div>
+</div>
+<div class="question-block">
+<p class="eyebrow" dir="ltr" id="questionKicker" lang="en">QUESTION 01 · FEELING</p>
+<h2 class="question-title" id="quizQuestion" tabindex="-1"></h2>
+<p class="question-hint" id="questionHint">حسی را انتخاب کن که به همین لحظه‌ات نزدیک‌تر است.</p>
+</div>
+<div aria-label="گزینه‌های پاسخ" class="answer-grid" id="answerGrid"></div>
+<button class="text-button quiz-back" id="quizBackButton" type="button">
+<span aria-hidden="true">→</span> بازگشت
             </button>
-            <button class="action action--secondary collage-button" id="open-menu" type="button">
-              <span class="action__index" aria-hidden="true">02</span>
-              <span class="action__copy">
-                <strong>هر هشت نوشیدنی</strong>
-                <small>ورق‌زدن کاتالوگ تابستانی</small>
-              </span>
-              <span class="action__arrow" aria-hidden="true">↙</span>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section class="screen quiz-screen" id="screen-quiz" data-screen="quiz" aria-labelledby="quiz-heading" hidden>
-        <div class="quiz-stage">
-          <div class="quiz-topline">
-            <button class="text-button quiz-back" id="quiz-back" type="button" hidden>
-              <span aria-hidden="true">→</span>
-              بازگشت
-            </button>
-            <div class="quiz-progress" role="progressbar" aria-label="پیشرفت کوییز" aria-valuemin="1" aria-valuemax="2" aria-valuenow="1" id="quiz-progress">
-              <span class="quiz-progress__current" id="quiz-step-current">01</span>
-              <span class="quiz-progress__rule" aria-hidden="true"><i></i></span>
-              <span class="quiz-progress__total">02</span>
-            </div>
-          </div>
-
-          <div class="quiz-collage" aria-hidden="true">
-            <span class="quiz-collage__paper quiz-collage__paper--a"></span>
-            <span class="quiz-collage__paper quiz-collage__paper--b"></span>
-            <span class="quiz-collage__type" id="quiz-decor-number">01</span>
-          </div>
-
-          <header class="quiz-heading-wrap">
-            <p class="eyebrow" id="quiz-eyebrow">QUESTION / FEELING</p>
-            <h1 id="quiz-heading">الان از نوشیدنی‌ات چه جور حسی می‌خوای؟</h1>
-            <p class="quiz-hint">یک گزینه را لمس کن؛ انتخابت فوراً ثبت می‌شود.</p>
-          </header>
-
-          <div class="quiz-options" id="quiz-options" role="group" aria-labelledby="quiz-heading"></div>
-        </div>
-      </section>
-
-      <section class="screen reveal-screen" id="screen-reveal" data-screen="reveal" aria-labelledby="reveal-title" hidden>
-        <div class="reveal-composition" aria-hidden="true">
-          <span class="reveal-slab reveal-slab--one"></span>
-          <span class="reveal-slab reveal-slab--two"></span>
-          <span class="reveal-slab reveal-slab--three"></span>
-          <span class="reveal-word">PAUSE</span>
-          <figure class="reveal-image" id="reveal-image"></figure>
-        </div>
-        <div class="reveal-copy">
-          <p class="eyebrow">YOUR SUMMER CUT</p>
-          <h1 id="reveal-title">قطعه‌ها کنار هم می‌آیند…</h1>
-        </div>
-      </section>
-
-      <section class="screen result-screen" id="screen-result" data-screen="result" aria-labelledby="result-title" hidden>
-        <article class="result-poster" id="result-poster">
-          <div class="result-masthead">
-            <button class="icon-button" id="result-home" type="button" aria-label="بازگشت به صفحه شروع">×</button>
-            <p class="result-edition" aria-hidden="true">PERSONAL PAUSE / ONE OF EIGHT</p>
-          </div>
-
-          <div class="result-hero">
-            <span class="result-index" id="result-index" aria-hidden="true">01</span>
-            <span class="result-line-vertical" id="result-line-vertical" aria-hidden="true">ICED TEA</span>
-            <figure class="result-image-main" id="result-image-main"></figure>
-            <figure class="result-image-fragment" id="result-image-fragment" aria-hidden="true"></figure>
-            <span class="result-stamp" aria-hidden="true">SELECTED<br>FOR NOW</span>
-          </div>
-
-          <div class="result-title-block">
-            <p class="eyebrow" id="result-line">آیس‌تی / ICED TEA</p>
-            <h1 id="result-title">آیس‌تی اپل پارادایس</h1>
-            <p class="result-title-en" id="result-title-en" lang="en" dir="ltr">Apple Paradise Iced Tea</p>
-          </div>
-
-          <div class="result-facts">
-            <div class="result-price">
-              <span>قیمت</span>
-              <strong id="result-price">۳۵۰٬۰۰۰</strong>
-              <small>تومان</small>
-            </div>
-            <p class="result-mood" id="result-mood" lang="en" dir="ltr">Clean · Crisp · Tea-led</p>
-          </div>
-
-          <div class="result-description-block">
-            <span class="result-description-number" aria-hidden="true">A</span>
-            <p id="result-description"></p>
-          </div>
-
-          <ul class="tag-list" id="result-tags" aria-label="ویژگی‌های نوشیدنی"></ul>
-
-          <aside class="alternate-cut" id="alternate-cut" aria-labelledby="alternate-title">
-            <div class="alternate-cut__top">
-              <div>
-                <p class="eyebrow">ANOTHER PAUSE</p>
-                <h2 id="alternate-title">یک برش دیگر</h2>
-              </div>
-              <button class="text-button" id="reroll-alternate" type="button">انتخاب تازه ↻</button>
-            </div>
-            <div class="alternate-cut__body">
-              <figure class="alternate-cut__image" id="alternate-image"></figure>
-              <div class="alternate-cut__copy">
-                <span id="alternate-code">RF-03</span>
-                <h3 id="alternate-name">رفرشر جینجر بیزل</h3>
-                <p id="alternate-name-en" lang="en" dir="ltr">Ginger Basil Refresher</p>
-                <strong id="alternate-price">۳۲۰٬۰۰۰ تومان</strong>
-              </div>
-            </div>
-          </aside>
-
-          <div class="result-actions">
-            <button class="action action--primary" id="restart-quiz" type="button">
-              <span class="action__copy"><strong>دوباره امتحان کن</strong><small>یک حال‌وهوای تازه</small></span>
-              <span class="action__arrow" aria-hidden="true">↻</span>
-            </button>
-            <button class="action action--secondary" id="result-menu" type="button">
-              <span class="action__copy"><strong>دیدن کاتالوگ کامل</strong><small>تمام هشت نوشیدنی</small></span>
-              <span class="action__arrow" aria-hidden="true">↙</span>
-            </button>
-          </div>
-        </article>
-      </section>
-
-      <section class="screen menu-screen" id="screen-menu" data-screen="menu" aria-labelledby="menu-title" hidden>
-        <div class="menu-masthead">
-          <button class="icon-button menu-close" id="menu-close" type="button" aria-label="بستن منوی کامل">×</button>
-          <div>
-            <p class="eyebrow">SUMMER CATALOGUE / 01—08</p>
-            <h1 id="menu-title">هشت مکث تابستانی</h1>
-          </div>
-          <p class="menu-lead">چهار فصل کوتاه؛ هر نوشیدنی یک پوستر، یک بافت و یک حال.</p>
-        </div>
-
-        <nav class="line-nav" id="line-nav" aria-label="رفتن به لاین نوشیدنی‌ها">
-          <button type="button" data-line-target="icedtea" aria-current="true"><span>01</span> ICED TEA</button>
-          <button type="button" data-line-target="refresher"><span>02</span> REFRESHER</button>
-          <button type="button" data-line-target="cloudy"><span>03</span> CLOUDY</button>
-          <button type="button" data-line-target="frappe"><span>04</span> FRAPPE</button>
-        </nav>
-
-        <div class="menu-catalogue" id="menu-catalogue"></div>
-
-        <footer class="catalogue-footer">
-          <img src="assets/images/brand/lcafe-logo.svg" alt="L Cafe — Your Daily Pause" width="120" height="63" loading="lazy">
-          <p>FIND YOUR SUMMER PAUSE</p>
-          <button class="text-button" id="menu-to-top" type="button">بازگشت به ابتدای کاتالوگ ↑</button>
-        </footer>
-      </section>
-    </main>
-
-    <div class="sr-only" id="screen-announcer" aria-live="polite" aria-atomic="true"></div>
-    <noscript>
-      <div class="noscript-message">برای اجرای کوییز، JavaScript مرورگر باید فعال باشد.</div>
-    </noscript>
-  </div>
+</div>
+</div>
+</section>
+<section aria-labelledby="pauseTitle" class="view pause-view" data-view-name="pause" hidden="" id="viewPause">
+<div class="pause-stage">
+<div aria-hidden="true" class="pause-orbit">
+<span class="pause-orbit__sun"></span>
+<span class="pause-orbit__arc pause-orbit__arc--one"></span>
+<span class="pause-orbit__arc pause-orbit__arc--two"></span>
+<span class="pause-orbit__arc pause-orbit__arc--three"></span>
+</div>
+<p class="eyebrow" dir="ltr" lang="en">ONE SMALL MOMENT</p>
+<h2 id="pauseTitle" tabindex="-1">مکث تابستانی تو در حال پیدا شدنه…</h2>
+<p>یک لحظه برای کنار هم گذاشتن حس و طعمی که انتخاب کردی.</p>
+</div>
+</section>
+<section aria-labelledby="resultName" class="view result-view" data-view-name="result" hidden="" id="viewResult">
+<div class="result-shell" id="resultShell">
+<div class="result-visual">
+<div aria-hidden="true" class="result-visual__index"><span id="resultLineIndex">01</span><b lang="en">SUMMER PAUSE</b></div>
+<div aria-hidden="true" class="result-visual__halo"></div>
+<img alt="" decoding="async" fetchpriority="high" height="1254" id="resultImage" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" width="1254"/>
+<div class="result-visual__caption">
+<span dir="ltr" id="resultCode" lang="en"></span>
+<span dir="ltr" id="resultLineName" lang="en"></span>
+</div>
+</div>
+<div class="result-content">
+<p class="eyebrow" dir="ltr" lang="en">YOUR SUMMER PAUSE</p>
+<h2 id="resultName" tabindex="-1"></h2>
+<p class="result-en" dir="ltr" id="resultEnglishName" lang="en"></p>
+<p class="result-mood" dir="ltr" id="resultMood" lang="en"></p>
+<p class="result-description" id="resultDescription"></p>
+<div aria-label="ویژگی‌های نوشیدنی" class="tag-list" id="resultTags"></div>
+<div class="result-price-row">
+<span>قیمت</span>
+<strong id="resultPrice"></strong>
+</div>
+</div>
+</div>
+<section aria-labelledby="secondaryTitle" class="secondary-pick">
+<div class="secondary-pick__intro">
+<p class="eyebrow" dir="ltr" lang="en">ANOTHER MOOD</p>
+<h3 id="secondaryTitle">یک پیشنهاد تصادفی دیگر</h3>
+<p>برای وقتی که دلت می‌خواهد از حال‌وهوای دیگری امتحان کنی.</p>
+</div>
+<article class="secondary-card" id="secondaryCard">
+<img alt="" decoding="async" height="1254" id="secondaryImage" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" width="1254"/>
+<div class="secondary-card__content">
+<span dir="ltr" id="secondaryLine" lang="en"></span>
+<h4 id="secondaryName"></h4>
+<p dir="ltr" id="secondaryEnglishName" lang="en"></p>
+<strong id="secondaryPrice"></strong>
+</div>
+</article>
+</section>
+<div class="result-actions">
+<button class="button button--solid" id="restartQuizButton" type="button">شروع دوباره کوییز</button>
+<button class="button button--outline" id="resultMenuButton" type="button">مشاهده همه نوشیدنی‌ها</button>
+<button class="text-button" id="resultHomeButton" type="button">بازگشت به صفحه اصلی</button>
+</div>
+</section>
+<section aria-labelledby="menuTitle" class="view menu-view" data-view-name="menu" hidden="" id="viewMenu">
+<header class="menu-intro">
+<div>
+<p class="eyebrow" dir="ltr" lang="en">THE SUMMER COLLECTION</p>
+<h2 id="menuTitle" tabindex="-1">منوی تابستانی</h2>
+</div>
+<p>هشت نوشیدنی در چهار حال‌وهوا؛ از چای‌های شفاف تا فراپه‌های یخی و عمیق.</p>
+</header>
+<div class="menu-sections" id="menuSections"></div>
+<div class="menu-end">
+<p dir="ltr" lang="en">END OF SUMMER COLLECTION · L CAFE</p>
+<button class="button button--solid" id="menuQuizButton" type="button">پیدا کردن نوشیدنی من</button>
+<button class="text-button" id="closeMenuButton" type="button">بازگشت</button>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<span dir="ltr" lang="en">L CAFE · YOUR DAILY PAUSE</span>
+<span>تابستان ۱۴۰۵</span>
+</footer>
+</div>
+<div aria-atomic="true" aria-live="polite" class="sr-only" id="liveRegion"></div>
 </body>
 </html>
