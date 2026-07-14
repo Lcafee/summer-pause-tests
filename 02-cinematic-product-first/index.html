@@ -8,7 +8,6 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="description" content="با دو انتخاب کوتاه، نوشیدنی مخصوص حال‌وهوای تابستانی خودت را در L Cafe پیدا کن.">
   <link rel="icon" href="assets/brand/lcafe-logo.svg" type="image/svg+xml">
-  <link rel="preload" as="image" href="assets/images/it-01.webp" type="image/webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto+Condensed:wght@700&family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
@@ -22,9 +21,9 @@
     <main id="mainContent" tabindex="-1">
       <section class="screen home-screen is-active" id="homeScreen" aria-labelledby="homeTitle">
         <div class="home-backdrop" aria-hidden="true">
-          <figure class="home-frame home-frame--one"><img src="assets/images/it-01.webp" alt="" width="1254" height="1254" fetchpriority="high" decoding="async"></figure>
-          <figure class="home-frame home-frame--two"><img src="assets/images/cl-01.webp" alt="" width="1254" height="1254" fetchpriority="low" decoding="async"></figure>
-          <figure class="home-frame home-frame--three"><img src="assets/images/fr-02.webp" alt="" width="1254" height="1254" fetchpriority="low" decoding="async"></figure>
+          <figure class="home-frame home-frame--one"><img id="homeImageA" alt="" width="1254" height="1254" fetchpriority="high" decoding="async"></figure>
+          <figure class="home-frame home-frame--two"><img id="homeImageB" alt="" width="1254" height="1254" fetchpriority="low" decoding="async"></figure>
+          <figure class="home-frame home-frame--three"><img id="homeImageC" alt="" width="1254" height="1254" fetchpriority="low" decoding="async"></figure>
           <div class="home-light"></div>
         </div>
 
@@ -150,9 +149,9 @@
       <section class="screen menu-screen" id="menuScreen" aria-labelledby="menuTitle" hidden>
         <div class="menu-cover">
           <div class="menu-cover-gallery" aria-hidden="true">
-            <figure class="menu-cover-frame menu-cover-frame--one"><img src="assets/images/it-01.webp" alt="" width="1254" height="1254" loading="lazy" decoding="async"></figure>
-            <figure class="menu-cover-frame menu-cover-frame--two"><img src="assets/images/cl-01.webp" alt="" width="1254" height="1254" loading="lazy" decoding="async"></figure>
-            <figure class="menu-cover-frame menu-cover-frame--three"><img src="assets/images/fr-02.webp" alt="" width="1254" height="1254" loading="lazy" decoding="async"></figure>
+            <figure class="menu-cover-frame menu-cover-frame--one"><img id="menuCoverImageA" alt="" width="1254" height="1254" decoding="async"></figure>
+            <figure class="menu-cover-frame menu-cover-frame--two"><img id="menuCoverImageB" alt="" width="1254" height="1254" decoding="async"></figure>
+            <figure class="menu-cover-frame menu-cover-frame--three"><img id="menuCoverImageC" alt="" width="1254" height="1254" decoding="async"></figure>
             <div class="menu-cover-shade"></div>
           </div>
 

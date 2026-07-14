@@ -551,8 +551,6 @@ button:focus-visible, a:focus-visible, [tabindex="-1"]:focus-visible { outline: 
   display: grid;
   gap: 0;
   position: relative;
-  content-visibility: auto;
-  contain-intrinsic-size: auto 650px;
 }
 .menu-product-frame {
   position: relative;

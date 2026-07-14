@@ -18,6 +18,8 @@
     revealScreen: document.getElementById("revealScreen"),
     resultScreen: document.getElementById("resultScreen"),
     menuScreen: document.getElementById("menuScreen"),
+    homeShowcaseImages: [document.getElementById("homeImageA"), document.getElementById("homeImageB"), document.getElementById("homeImageC")],
+    menuCoverImages: [document.getElementById("menuCoverImageA"), document.getElementById("menuCoverImageB"), document.getElementById("menuCoverImageC")],
     startQuizButton: document.getElementById("startQuizButton"),
     openMenuButton: document.getElementById("openMenuButton"),
     quizBackButton: document.getElementById("quizBackButton"),
@@ -81,6 +83,24 @@
     };
     if (imageElement.getAttribute("src") !== nextSource) imageElement.src = nextSource;
     imageElement.alt = altText ?? "تصویر نوشیدنی L Cafe";
+  }
+
+  function randomProducts(count) {
+    const linePools = Object.values(productsByLine);
+    for (let index = linePools.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [linePools[index], linePools[randomIndex]] = [linePools[randomIndex], linePools[index]];
+    }
+    return linePools.slice(0, count).map(lineProducts => lineProducts[Math.floor(Math.random() * lineProducts.length)]);
+  }
+
+  function renderRandomShowcase(imageElements) {
+    randomProducts(imageElements.length).forEach((product, index) => {
+      const image = imageElements[index];
+      image.loading = "eager";
+      image.fetchPriority = index === 0 ? "high" : "low";
+      setImage(image, product.image, "");
+    });
   }
 
   function announce(message) {
@@ -183,13 +203,15 @@
       state.selectedLine = null;
       renderQuizStep();
     } else {
+      renderRandomShowcase(elements.homeShowcaseImages);
       showScreen("homeScreen", elements.startQuizButton);
       announce("صفحه شروع");
     }
   }
 
   function randomEncore(mainCode) {
-    const alternatives = CAFE_PRODUCTS.filter(product => product.code !== mainCode);
+    const mainProduct = productByCode.get(mainCode);
+    const alternatives = CAFE_PRODUCTS.filter(product => product.code !== mainCode && product.line !== mainProduct?.line);
     return alternatives[Math.floor(Math.random() * alternatives.length)];
   }
 
@@ -246,6 +268,7 @@
 
   function buildMenu() {
     const fragment = document.createDocumentFragment();
+    let imageIndex = 0;
     Object.values(CAFE_LINES).forEach(line => {
       const chapter = document.createElement("section");
       chapter.className = `menu-chapter menu-chapter--${line.key}`;
@@ -260,7 +283,10 @@
       chapter.setAttribute("aria-labelledby", chapterTitle.id);
       const productsWrap = document.createElement("div");
       productsWrap.className = "chapter-products";
-      productsByLine[line.key].forEach((product, productIndex) => productsWrap.append(createMenuProduct(product, productIndex)));
+      productsByLine[line.key].forEach((product, productIndex) => {
+        productsWrap.append(createMenuProduct(product, productIndex, imageIndex));
+        imageIndex += 1;
+      });
       chapter.append(chapterTitle, productsWrap);
       fragment.append(chapter);
     });
@@ -268,7 +294,7 @@
     elements.menuChapters.replaceChildren(fragment);
   }
 
-  function createMenuProduct(product, index) {
+  function createMenuProduct(product, index, imageIndex) {
     const article = document.createElement("article");
     article.className = `menu-product${index % 2 ? " menu-product--reverse" : ""}`;
     article.dataset.code = product.code;
@@ -281,7 +307,8 @@
     const image = document.createElement("img");
     image.width = 1254;
     image.height = 1254;
-    image.loading = "lazy";
+    image.loading = "eager";
+    image.fetchPriority = imageIndex < 2 ? "high" : "low";
     image.decoding = "async";
     setImage(image, product.image, `تصویر ${product.name}`);
     figure.append(image);
@@ -308,6 +335,7 @@
       buildMenu();
       menuBuilt = true;
     }
+    renderRandomShowcase(elements.menuCoverImages);
     state.previousScreenBeforeMenu = origin === "menuScreen" ? "homeScreen" : origin;
     showScreen("menuScreen", elements.menuTitle);
     announce("منوی کامل نوشیدنی‌های تابستانی");
@@ -316,12 +344,14 @@
   function closeMenu() {
     const target = state.previousScreenBeforeMenu === "resultScreen" ? "resultScreen" : "homeScreen";
     const focusTarget = target === "resultScreen" ? elements.resultMenuButton : elements.openMenuButton;
+    if (target === "homeScreen") renderRandomShowcase(elements.homeShowcaseImages);
     showScreen(target, focusTarget);
     announce(target === "resultScreen" ? `بازگشت به نتیجه ${elements.resultName.textContent}` : "صفحه شروع");
   }
 
   function goHome() {
     cancelPendingFlow();
+    renderRandomShowcase(elements.homeShowcaseImages);
     showScreen("homeScreen", elements.startQuizButton);
     announce("صفحه شروع");
   }
@@ -343,5 +373,6 @@
     });
   }
 
+  renderRandomShowcase(elements.homeShowcaseImages);
   bindEvents();
 })();
