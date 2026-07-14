@@ -203,6 +203,34 @@ button:focus-visible, a:focus-visible, [tabindex="-1"]:focus-visible { outline: 
 .home-frame--one { width: 88%; aspect-ratio: 1; top: 10%; left: 12%; animation: drift-a 8s ease-in-out infinite; }
 .home-frame--two { width: 44%; aspect-ratio: 1; top: 8%; right: -8%; animation: drift-b 9s ease-in-out infinite; }
 .home-frame--three { width: 42%; aspect-ratio: 1; top: 40%; left: -6%; animation: drift-c 8.5s ease-in-out infinite; }
+
+/* Prevent WebKit mobile from exposing rectangular filter buffers around transparent product cutouts. */
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 480px) {
+    .home-frame,
+    .menu-cover-frame { isolation: isolate; }
+    .home-frame::after,
+    .menu-cover-frame::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      inset: 24% 16% 8%;
+      border-radius: 50%;
+      background: rgba(8, 2, 4, .28);
+      filter: blur(24px);
+      pointer-events: none;
+    }
+    .home-frame img,
+    .menu-cover-frame img { position: relative; z-index: 1; }
+    .home-frame img,
+    .quiz-scene-image,
+    .reveal-image-wrap img,
+    .result-image,
+    .menu-cover-frame img,
+    .menu-product-image img,
+    .encore-visual img { filter: none; }
+  }
+}
 .home-light {
   position: absolute;
   width: 110%; height: 34%;
