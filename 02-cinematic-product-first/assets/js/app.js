@@ -7,6 +7,7 @@
     selectedLine: null,
     resultCode: null,
     previousScreenBeforeMenu: "homeScreen",
+    transitioning: false,
     reducedMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches
   };
 
@@ -31,7 +32,6 @@
     revealTitle: document.getElementById("revealTitle"),
     resultHomeButton: document.getElementById("resultHomeButton"),
     resultImage: document.getElementById("resultImage"),
-    resultCode: document.getElementById("resultCode"),
     resultLineEn: document.getElementById("resultLineEn"),
     resultLineNumber: document.getElementById("resultLineNumber"),
     resultLine: document.getElementById("resultLine"),
@@ -50,7 +50,6 @@
     resultMenuButton: document.getElementById("resultMenuButton"),
     closeMenuButton: document.getElementById("closeMenuButton"),
     menuTitle: document.getElementById("menuTitle"),
-    chapterNavigation: document.getElementById("chapterNavigation"),
     menuChapters: document.getElementById("menuChapters"),
     menuQuizButton: document.getElementById("menuQuizButton"),
     screenReaderStatus: document.getElementById("screenReaderStatus")
@@ -58,6 +57,11 @@
 
   const productByCode = new Map(CAFE_PRODUCTS.map(product => [product.code, product]));
   const productsByLine = Object.fromEntries(Object.keys(CAFE_LINES).map(lineKey => [lineKey, CAFE_PRODUCTS.filter(product => product.line === lineKey)]));
+  const priceFormatter = new Intl.NumberFormat("en-US");
+  let announceTimer = 0;
+  let transitionTimer = 0;
+  let revealTimer = 0;
+  let menuBuilt = false;
 
   function toPersianDigits(value) {
     return String(value).replace(/\d/g, digit => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]);
@@ -66,21 +70,39 @@
   function formatPrice(value) {
     const hasPrice = value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value));
     const numericValue = hasPrice ? Number(value) : DEFAULT_PRODUCT_PRICE;
-    return `${toPersianDigits(new Intl.NumberFormat("en-US").format(numericValue)).replace(/,/g, "٬")} تومان`;
+    return `${toPersianDigits(priceFormatter.format(numericValue)).replace(/,/g, "٬")} تومان`;
   }
 
   function setImage(imageElement, source, altText) {
+    const nextSource = source || DEFAULT_PRODUCT_IMAGE;
     imageElement.onerror = () => {
       imageElement.onerror = null;
       imageElement.src = DEFAULT_PRODUCT_IMAGE;
     };
-    imageElement.src = source || DEFAULT_PRODUCT_IMAGE;
-    imageElement.alt = altText || "تصویر نوشیدنی L Cafe";
+    if (imageElement.getAttribute("src") !== nextSource) imageElement.src = nextSource;
+    imageElement.alt = altText ?? "تصویر نوشیدنی L Cafe";
   }
 
   function announce(message) {
+    window.clearTimeout(announceTimer);
     elements.screenReaderStatus.textContent = "";
-    window.setTimeout(() => { elements.screenReaderStatus.textContent = message; }, 20);
+    announceTimer = window.setTimeout(() => { elements.screenReaderStatus.textContent = message; }, 20);
+  }
+
+  function cancelPendingFlow() {
+    window.clearTimeout(transitionTimer);
+    window.clearTimeout(revealTimer);
+    transitionTimer = 0;
+    revealTimer = 0;
+    state.transitioning = false;
+  }
+
+  function scheduleTransition(callback, delay) {
+    window.clearTimeout(transitionTimer);
+    transitionTimer = window.setTimeout(() => {
+      transitionTimer = 0;
+      callback();
+    }, delay);
   }
 
   function showScreen(screenId, focusTarget) {
@@ -96,6 +118,7 @@
   }
 
   function renderQuizStep() {
+    state.transitioning = false;
     const firstStep = state.quizStep === 1;
     const content = firstStep ? QUIZ_CONTENT.first : QUIZ_CONTENT.second[state.selectedLine];
     elements.questionCaption.textContent = content.caption;
@@ -131,19 +154,22 @@
   }
 
   function selectAnswer(answer, button) {
+    if (state.transitioning) return;
+    state.transitioning = true;
     button.classList.add("is-selected");
     button.setAttribute("aria-pressed", "true");
     if (state.quizStep === 1) {
       state.selectedLine = answer.line;
       state.quizStep = 2;
-      window.setTimeout(renderQuizStep, state.reducedMotion ? 0 : 170);
+      scheduleTransition(renderQuizStep, state.reducedMotion ? 0 : 170);
       return;
     }
     state.resultCode = answer.resultCode;
-    window.setTimeout(() => revealResult(answer.resultCode), state.reducedMotion ? 0 : 170);
+    scheduleTransition(() => revealResult(answer.resultCode), state.reducedMotion ? 0 : 170);
   }
 
   function startQuiz() {
+    cancelPendingFlow();
     state.quizStep = 1;
     state.selectedLine = null;
     state.resultCode = null;
@@ -151,6 +177,7 @@
   }
 
   function goBackFromQuiz() {
+    cancelPendingFlow();
     if (state.quizStep === 2) {
       state.quizStep = 1;
       state.selectedLine = null;
@@ -168,15 +195,23 @@
 
   function revealResult(code) {
     const product = productByCode.get(code);
-    if (!product) return;
+    if (!product) {
+      state.transitioning = false;
+      return;
+    }
     setImage(elements.revealImage, product.image, "");
     showScreen("revealScreen", elements.revealTitle);
     announce("در حال نمایش نتیجه شما");
     const revealDuration = state.reducedMotion ? 80 : 760;
-    window.setTimeout(() => renderResult(product), revealDuration);
+    window.clearTimeout(revealTimer);
+    revealTimer = window.setTimeout(() => {
+      revealTimer = 0;
+      renderResult(product);
+    }, revealDuration);
   }
 
   function renderResult(product) {
+    state.transitioning = false;
     const line = CAFE_LINES[product.line];
     const encore = randomEncore(product.code);
     const encoreLine = CAFE_LINES[encore.line];
@@ -185,7 +220,6 @@
     document.documentElement.style.setProperty("--result-ink", line.ink);
     elements.resultScreen.dataset.line = product.line;
     setImage(elements.resultImage, product.image, `تصویر ${product.name}`);
-    elements.resultCode.textContent = product.code;
     elements.resultLineEn.textContent = line.name;
     elements.resultLineNumber.textContent = line.number;
     elements.resultLine.textContent = line.fa;
@@ -212,36 +246,25 @@
 
   function buildMenu() {
     const fragment = document.createDocumentFragment();
-    const navFragment = document.createDocumentFragment();
-
-    Object.values(CAFE_LINES).forEach((line, lineIndex) => {
-      const navButton = document.createElement("button");
-      navButton.type = "button";
-      navButton.className = `chapter-link${lineIndex === 0 ? " is-current" : ""}`;
-      navButton.dataset.target = `chapter-${line.key}`;
-      navButton.style.setProperty("--nav-accent", line.accent);
-      navButton.innerHTML = `<span>${line.number}</span><b dir="ltr">${line.name}</b>`;
-      navButton.addEventListener("click", () => {
-        document.getElementById(navButton.dataset.target)?.scrollIntoView({ behavior: state.reducedMotion ? "auto" : "smooth", block: "start" });
-      });
-      navFragment.append(navButton);
-
+    Object.values(CAFE_LINES).forEach(line => {
       const chapter = document.createElement("section");
       chapter.className = `menu-chapter menu-chapter--${line.key}`;
       chapter.id = `chapter-${line.key}`;
       chapter.dataset.line = line.key;
       chapter.style.setProperty("--chapter-accent", line.accent);
       chapter.style.setProperty("--chapter-ink", line.ink);
-      chapter.innerHTML = `<div class="chapter-opening" data-number="${line.number}"><header class="chapter-head"><span class="chapter-number">${line.number}</span><div><p dir="ltr">${line.caption}</p><h2 dir="ltr">${line.name}</h2><span>${line.fa}</span></div></header><p class="chapter-intro">${line.intro}</p></div>`;
-
+      const chapterTitle = document.createElement("h2");
+      chapterTitle.className = "sr-only";
+      chapterTitle.id = `chapter-title-${line.key}`;
+      chapterTitle.textContent = line.fa;
+      chapter.setAttribute("aria-labelledby", chapterTitle.id);
       const productsWrap = document.createElement("div");
       productsWrap.className = "chapter-products";
       productsByLine[line.key].forEach((product, productIndex) => productsWrap.append(createMenuProduct(product, productIndex)));
-      chapter.append(productsWrap);
+      chapter.append(chapterTitle, productsWrap);
       fragment.append(chapter);
     });
 
-    elements.chapterNavigation.replaceChildren(navFragment);
     elements.menuChapters.replaceChildren(fragment);
   }
 
@@ -265,7 +288,7 @@
 
     const stamp = document.createElement("div");
     stamp.className = "menu-product-stamp";
-    stamp.innerHTML = `<span>PORTRAIT ${String(index + 1).padStart(2, "0")}</span><b>${product.code}</b>`;
+    stamp.innerHTML = `<span>PORTRAIT ${String(index + 1).padStart(2, "0")}</span>`;
 
     const price = document.createElement("strong");
     price.className = "menu-product-price";
@@ -281,6 +304,10 @@
   }
 
   function openMenu(origin = state.currentScreen) {
+    if (!menuBuilt) {
+      buildMenu();
+      menuBuilt = true;
+    }
     state.previousScreenBeforeMenu = origin === "menuScreen" ? "homeScreen" : origin;
     showScreen("menuScreen", elements.menuTitle);
     announce("منوی کامل نوشیدنی‌های تابستانی");
@@ -290,22 +317,20 @@
     const target = state.previousScreenBeforeMenu === "resultScreen" ? "resultScreen" : "homeScreen";
     const focusTarget = target === "resultScreen" ? elements.resultMenuButton : elements.openMenuButton;
     showScreen(target, focusTarget);
+    announce(target === "resultScreen" ? `بازگشت به نتیجه ${elements.resultName.textContent}` : "صفحه شروع");
   }
 
-  function observeMenuChapters() {
-    const chapterObserver = new IntersectionObserver(entries => {
-      const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!visible) return;
-      document.querySelectorAll(".chapter-link").forEach(button => button.classList.toggle("is-current", button.dataset.target === visible.target.id));
-    }, { rootMargin: "-25% 0px -60% 0px", threshold: [0, 0.2, 0.5] });
-    document.querySelectorAll(".menu-chapter").forEach(chapter => chapterObserver.observe(chapter));
+  function goHome() {
+    cancelPendingFlow();
+    showScreen("homeScreen", elements.startQuizButton);
+    announce("صفحه شروع");
   }
 
   function bindEvents() {
     elements.startQuizButton.addEventListener("click", startQuiz);
     elements.openMenuButton.addEventListener("click", () => openMenu("homeScreen"));
     elements.quizBackButton.addEventListener("click", goBackFromQuiz);
-    elements.resultHomeButton.addEventListener("click", () => showScreen("homeScreen", elements.startQuizButton));
+    elements.resultHomeButton.addEventListener("click", goHome);
     elements.restartQuizButton.addEventListener("click", startQuiz);
     elements.resultMenuButton.addEventListener("click", () => openMenu("resultScreen"));
     elements.closeMenuButton.addEventListener("click", closeMenu);
@@ -314,11 +339,9 @@
       if (event.key !== "Escape") return;
       if (state.currentScreen === "menuScreen") closeMenu();
       else if (state.currentScreen === "quizScreen") goBackFromQuiz();
-      else if (state.currentScreen === "resultScreen") showScreen("homeScreen", elements.startQuizButton);
+      else if (state.currentScreen === "resultScreen") goHome();
     });
   }
 
-  buildMenu();
   bindEvents();
-  observeMenuChapters();
 })();
