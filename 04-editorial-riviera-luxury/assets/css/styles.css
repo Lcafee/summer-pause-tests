@@ -40,6 +40,7 @@ body {
 }
 button, a { -webkit-tap-highlight-color: transparent; }
 button { font: inherit; color: inherit; min-height: 48px; }
+button { touch-action: manipulation; }
 img { display: block; max-width: 100%; }
 button:focus-visible, a:focus-visible, [tabindex="-1"]:focus-visible { outline: 3px solid #f5c670; outline-offset: 4px; }
 
@@ -52,6 +53,7 @@ button:focus-visible, a:focus-visible, [tabindex="-1"]:focus-visible { outline: 
   margin: 0 auto;
   position: relative;
   background: var(--paper);
+  overflow: hidden;
   overflow: clip;
   box-shadow: 0 0 120px rgba(0, 0, 0, .4);
 }
@@ -592,6 +594,8 @@ button:focus-visible, a:focus-visible, [tabindex="-1"]:focus-visible { outline: 
   border-radius: 0;
   color: #fff4e8;
   background: transparent;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 440px;
 }
 .encore > * { position: relative; z-index: 1; }
 .encore-head p { color: rgba(226,184,131,.88); }
@@ -749,6 +753,8 @@ button:focus-visible, a:focus-visible, [tabindex="-1"]:focus-visible { outline: 
   overflow: hidden;
   padding: 30px 0 44px;
   color: #fff4e8;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1480px;
 }
 .menu-chapter::before {
   content: "";
@@ -973,6 +979,31 @@ button:focus-visible, a:focus-visible, [tabindex="-1"]:focus-visible { outline: 
   border-style: solid;
   color: #fffaf3;
 }
+
+/* Progressive fallbacks: modern browsers keep the exact design above. */
+@supports not (color: color-mix(in srgb, #000 50%, #fff)) {
+  .result-screen {
+    background:
+      radial-gradient(circle at 82% 34%, rgba(169,170,98,.15), transparent 28%),
+      radial-gradient(circle at 14% 66%, rgba(157,46,72,.2), transparent 30%),
+      linear-gradient(180deg, #561426 0%, #330813 48%, #1d040a 100%);
+  }
+  .result-hero {
+    background:
+      radial-gradient(circle at 50% 22%, rgba(169,170,98,.36) 0, transparent 25%),
+      radial-gradient(circle at 18% 18%, rgba(255,223,168,.16) 0, transparent 28%),
+      linear-gradient(180deg, #531123 0%, #350914 62%, rgba(29,4,10,.18) 100%);
+  }
+  .result-backdrop::before { background: radial-gradient(circle, rgba(194,194,139,.5) 0, transparent 68%); }
+  .result-name-en { color: #d8d7ad; }
+  .encore-head span { color: #cbb58f; }
+  .encore-visual::before { background: radial-gradient(circle, rgba(210,205,157,.34) 0, transparent 72%); }
+  .menu-chapter::before { background: rgba(214,176,122,.12); }
+  .menu-chapter-kicker,
+  .menu-product-en { color: #e7cdae; }
+  .menu-product-frame::before { background: radial-gradient(circle, rgba(255,255,255,.22) 0, transparent 70%); }
+}
+
 .icon-button::before {
   content: "";
   position: absolute;
@@ -1116,6 +1147,29 @@ button:focus-visible, a:focus-visible, [tabindex="-1"]:focus-visible { outline: 
 .menu-footer button {
   border-color: rgba(255,255,255,.28);
   color: #fffaf3;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .icon-button,
+  .season-mark,
+  .action--primary,
+  .action--outlined,
+  .answer-option,
+  .reveal-copy,
+  .result-kicker,
+  .result-price-badge,
+  .result-glass-panel,
+  .result-sensory,
+  .encore-stage,
+  .result-actions .action--dark,
+  .result-actions .action--dark-text,
+  .menu-intro,
+  .menu-chapter-head,
+  .menu-product,
+  .menu-footer button {
+    background-color: rgba(63,8,21,.82);
+    background-image: none;
+  }
 }
 
 @media (min-width: 390px) {

@@ -56,7 +56,10 @@
   };
 
   const productByCode = new Map(CAFE_PRODUCTS.map(product => [product.code, product]));
-  const productsByLine = Object.fromEntries(Object.keys(CAFE_LINES).map(lineKey => [lineKey, CAFE_PRODUCTS.filter(product => product.line === lineKey)]));
+  const productsByLine = {};
+  Object.keys(CAFE_LINES).forEach(lineKey => {
+    productsByLine[lineKey] = CAFE_PRODUCTS.filter(product => product.line === lineKey);
+  });
   const priceFormatter = new Intl.NumberFormat("en-US");
   let announceTimer = 0;
   let transitionTimer = 0;
@@ -80,7 +83,7 @@
       imageElement.src = DEFAULT_PRODUCT_IMAGE;
     };
     if (imageElement.getAttribute("src") !== nextSource) imageElement.src = nextSource;
-    imageElement.alt = altText ?? "تصویر نوشیدنی L Cafe";
+    imageElement.alt = altText !== undefined && altText !== null ? altText : "تصویر نوشیدنی L Cafe";
   }
 
   function randomProducts(count) {
@@ -96,7 +99,7 @@
     randomProducts(imageElements.length).forEach((product, index) => {
       const image = imageElements[index];
       image.loading = "eager";
-      image.fetchPriority = index === 0 ? "high" : "low";
+      if ("fetchPriority" in image) image.fetchPriority = index === 0 ? "high" : "low";
       setImage(image, product.image, "");
     });
   }
@@ -210,7 +213,8 @@
 
   function randomEncore(mainCode) {
     const mainProduct = productByCode.get(mainCode);
-    const alternatives = CAFE_PRODUCTS.filter(product => product.code !== mainCode && product.line !== mainProduct?.line);
+    const mainLine = mainProduct ? mainProduct.line : null;
+    const alternatives = CAFE_PRODUCTS.filter(product => product.code !== mainCode && product.line !== mainLine);
     return alternatives[Math.floor(Math.random() * alternatives.length)];
   }
 
@@ -319,7 +323,7 @@
     image.width = 1254;
     image.height = 1254;
     image.loading = imageIndex < 2 ? "eager" : "lazy";
-    image.fetchPriority = imageIndex < 2 ? "high" : "low";
+    if ("fetchPriority" in image) image.fetchPriority = imageIndex < 2 ? "high" : "low";
     image.decoding = "async";
     setImage(image, product.image, `تصویر ${product.name}`);
     figure.append(image);
