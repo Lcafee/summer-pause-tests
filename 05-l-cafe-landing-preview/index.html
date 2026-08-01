@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#471019">
-  <meta name="color-scheme" content="dark light">
   <title>L Cafe — Landing Preview</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,54 +12,59 @@
     :root {
       --scarlet: #471019;
       --ivory: #f3f1ec;
-      --pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='346' height='340' viewBox='0 0 346 340' fill='none'%3E%3Crect width='346' height='340' fill='%23471019'/%3E%3Cpath opacity='.16' d='M0 0H173V170H0V0Z' fill='%23F3F1EC'/%3E%3Cpath opacity='.16' d='M173 170H346V340H173V170Z' fill='%23F3F1EC'/%3E%3Cpath opacity='.16' d='M173 0H346V170H173V0Z' fill='%23471019'/%3E%3Cpath opacity='.16' d='M0 170H173V340H0V170Z' fill='%23471019'/%3E%3C/svg%3E");
     }
+
     * { box-sizing: border-box; }
+
     html {
       margin: 0;
       padding: 0;
       background: var(--scarlet);
-      scroll-behavior: smooth;
       -webkit-text-size-adjust: 100%;
     }
+
     body {
       margin: 0;
       min-width: 320px;
-      min-height: 100%;
       overflow-x: hidden;
+      color: var(--ivory);
       background-color: var(--scarlet);
-      background-image: var(--pattern);
+      background-image: url("assets/pattern.svg");
       background-repeat: repeat;
       background-size: 346px 340px;
-      color: var(--ivory);
       font-family: "Vazirmatn", Tahoma, Arial, sans-serif;
     }
+
     img { display: block; max-width: 100%; }
+
     .hero {
       width: 100%;
+      min-height: 100vh;
       min-height: 100svh;
       min-height: 100dvh;
       display: grid;
       place-items: center;
-      padding:
-        max(24px, env(safe-area-inset-top))
-        24px
-        max(24px, env(safe-area-inset-bottom));
+      padding: max(24px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom));
     }
+
     .hero__logo {
-      width: clamp(220px, 22vw, 420px);
+      width: 22vw;
+      min-width: 220px;
+      max-width: 420px;
       height: auto;
       will-change: opacity, transform;
     }
+
     .about {
       width: min(100%, 920px);
-      margin-inline: auto;
+      margin: 0 auto;
       padding: 140px 80px;
       display: flex;
       flex-direction: column;
       gap: 26px;
       text-align: right;
     }
+
     .about p {
       margin: 0;
       color: rgba(243, 241, 236, .82);
@@ -68,20 +72,28 @@
       font-weight: 400;
       line-height: 2.1;
     }
+
     .photo {
       width: 100%;
+      height: 88vh;
       height: 88svh;
       min-height: 560px;
-      background: var(--ivory);
-      overflow: hidden;
       margin: 0;
+      overflow: hidden;
+      background: var(--ivory);
     }
+
     .photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
+      opacity: 0;
+      transition: opacity 240ms ease;
     }
+
+    .photo img.is-ready { opacity: 1; }
+
     .menu-intro {
       min-height: 510px;
       padding: 130px 80px;
@@ -92,18 +104,21 @@
       text-align: center;
       gap: 18px;
     }
+
     .menu-intro__eyebrow {
       font-size: 12px;
       font-weight: 400;
       letter-spacing: .3em;
       color: rgba(243, 241, 236, .75);
     }
+
     .menu-intro h2 {
       margin: 0;
       font-size: 32px;
       line-height: 1.4;
       font-weight: 600;
     }
+
     .menu-intro p {
       max-width: 520px;
       margin: 0;
@@ -112,52 +127,56 @@
       font-weight: 400;
       line-height: 1.9;
     }
+
     @media (max-width: 640px) {
-      body { background-size: 280px 275px; }
-      .hero {
-        min-height: 100svh;
-        min-height: 100dvh;
-        padding-inline: 28px;
-      }
+      .hero { padding-inline: 26px; }
+
       .hero__logo {
         width: min(67vw, 280px);
+        min-width: 220px;
       }
+
       .about {
         padding: 88px 24px 94px;
         gap: 22px;
       }
+
       .about p {
         font-size: 15px;
         line-height: 2.05;
       }
+
       .photo {
         height: 72svh;
         min-height: 500px;
       }
-      .photo img {
-        object-position: 51% center;
-      }
+
+      .photo img { object-position: 51% center; }
+
       .menu-intro {
         min-height: 470px;
         padding: 104px 24px;
         gap: 16px;
       }
+
       .menu-intro h2 { font-size: 28px; }
+
       .menu-intro p {
         max-width: 330px;
         font-size: 14px;
       }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
       .hero__logo { will-change: auto; }
+      .photo img { transition: none; }
     }
   </style>
 </head>
 <body>
   <main>
     <section class="hero" aria-label="L Cafe">
-      <svg class="hero__logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 736 363" role="img" aria-label="L Cafe"><path fill="#fff" d="M67 24h84v244h180v72H67V24Zm325 72c46 0 80 15 103 46 18 24 27 53 27 87v111h-73v-26c-21 23-49 35-83 35-32 0-58-9-78-27-19-17-29-40-29-68 0-31 12-55 36-72 24-18 57-27 99-27h52v-5c0-26-17-39-51-39-28 0-56 8-83 24l-29-54c33-23 69-35 109-35Zm-1 201c18 0 33-5 43-15 10-9 15-21 15-36v-8h-43c-49 0-73 12-73 37 0 15 7 22 20 22h38Zm166-201h72l-64 244h-73l65-244Zm116 0h72l-64 244h-73l65-244Z"/></svg>
+      <img class="hero__logo" src="assets/logo.svg" alt="L Cafe">
     </section>
 
     <section class="about" aria-label="درباره ال کافه">
@@ -166,7 +185,7 @@
     </section>
 
     <figure class="photo" aria-label="فضای ال کافه">
-      <img src="https://raw.githubusercontent.com/Lcafee/summer-pause-tests/main/04-editorial-riviera-luxury/assets/images/hero.webp" alt="فضای داخلی ال کافه" onerror="this.style.display='none'">
+      <img id="cafe-photo" alt="فضای داخلی ال کافه">
     </figure>
 
     <section class="menu-intro" aria-label="منوی ما">
@@ -179,22 +198,43 @@
   <script>
     (() => {
       const logo = document.querySelector(".hero__logo");
-      if (!logo || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      let ticking = false;
-      const update = () => {
-        const vh = window.innerHeight || 800;
-        const progress = Math.min(1, window.scrollY / (vh * 0.7));
-        logo.style.opacity = String(Math.max(0, 1 - progress));
-        logo.style.transform = `translateY(${-progress * 18}px) scale(${1 - progress * 0.025})`;
-        ticking = false;
-      };
-      addEventListener("scroll", () => {
-        if (!ticking) {
-          requestAnimationFrame(update);
-          ticking = true;
-        }
-      }, { passive: true });
-      update();
+      const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (logo && !reduced) {
+        let ticking = false;
+        const updateLogo = () => {
+          const viewportHeight = window.innerHeight || 800;
+          const progress = Math.min(1, window.scrollY / (viewportHeight * .7));
+          logo.style.opacity = String(Math.max(0, 1 - progress));
+          logo.style.transform = `translateY(${-progress * 18}px) scale(${1 - progress * .025})`;
+          ticking = false;
+        };
+
+        addEventListener("scroll", () => {
+          if (!ticking) {
+            requestAnimationFrame(updateLogo);
+            ticking = true;
+          }
+        }, { passive: true });
+
+        updateLogo();
+      }
+
+      const photo = document.getElementById("cafe-photo");
+      if (photo) {
+        fetch("assets/cafe.b64")
+          .then(response => {
+            if (!response.ok) throw new Error("Image data unavailable");
+            return response.text();
+          })
+          .then(base64 => {
+            photo.addEventListener("load", () => photo.classList.add("is-ready"), { once: true });
+            photo.src = "data:image/jpeg;base64," + base64.trim();
+          })
+          .catch(() => {
+            photo.alt = "تصویر فضای ال کافه بارگذاری نشد";
+          });
+      }
     })();
   </script>
 </body>
