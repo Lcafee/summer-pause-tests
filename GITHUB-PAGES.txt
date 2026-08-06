@@ -1,8 +1,0 @@
-L Cafe — GitHub Pages package
-
-1. Extract this ZIP.
-2. Upload all extracted files and folders to the root of your repository branch.
-3. In GitHub: Settings > Pages > Deploy from a branch.
-4. Select the branch and /(root), then Save.
-
-Keep index.html, menu.html, assets/, and uploads/ at the repository root.
